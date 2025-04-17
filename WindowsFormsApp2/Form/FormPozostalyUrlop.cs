@@ -17,8 +17,22 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
             _db = db;
+            dgv_PozostalyUrlop.DataSource = _db.Produkt.ToList();
+            for (int i = 0; i < dgv_PozostalyUrlop.Columns.Count; i++)
+            {
+                if (i == 0 || i == 1) 
+                {
+                    dgv_PozostalyUrlop.Columns[i].Visible = true; 
+                }
+                else
+                {
+                    dgv_PozostalyUrlop.Columns[i].Visible = false; 
+                }
+            }
             dgv_PozostalyUrlop.DataSource = _db.V_NiedostepnoscPracownika.ToList();
             //dgv_PozostalyUrlop.Columns["Produkcja_produktu"].Visible = false;
+        }
+
         }
 
         private void FormPozostalyUrlop_Load(object sender, EventArgs e)
@@ -28,6 +42,14 @@ namespace WindowsFormsApp2
 
         private void btn_DodajProdukt_Click(object sender, EventArgs e)
         {
+
+            Form mp = new MP(_db);
+            mp.ShowDialog();
+            dgv_PozostalyUrlop.DataSource = null;
+            dgv_PozostalyUrlop.DataSource = _db.Produkt.ToList();
+            dgv_PozostalyUrlop.Update();
+            dgv_PozostalyUrlop.Refresh();
+        
             BW frm = new BW(_db); 
             frm.BringToFront(); 
             frm.ShowDialog(); 
