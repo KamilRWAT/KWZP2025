@@ -178,6 +178,12 @@
     <Compile Include="Platnosc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Form\PM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\PM.Designer.cs">
+      <DependentUpon>PM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pojazd.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -488,6 +494,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormPozostalyUrlop.resx">
       <DependentUpon>FormPozostalyUrlop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\PM.resx">
+      <DependentUpon>PM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

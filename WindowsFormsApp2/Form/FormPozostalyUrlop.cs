@@ -30,6 +30,9 @@ namespace WindowsFormsApp2
         {
             try
             {
+                Form PM1 = new PM(_db);
+                PM1.ShowDialog();
+
                 Produkt produkt = new Produkt();
                 produkt.nazwa = "Emilia4";
                 List<Produkt> ostatniProdukt = _db.Produkt.ToList();
