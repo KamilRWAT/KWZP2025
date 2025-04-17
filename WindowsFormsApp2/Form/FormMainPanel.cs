@@ -54,5 +54,10 @@ namespace WindowsFormsApp2
         {
             OpenChildForm(new FormPozostalyUrlop(db));
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
