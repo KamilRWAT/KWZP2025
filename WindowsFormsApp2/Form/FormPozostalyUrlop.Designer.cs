@@ -30,6 +30,7 @@
         {
             this.dgv_PozostalyUrlop = new System.Windows.Forms.DataGridView();
             this.btn_DodajProdukt = new System.Windows.Forms.Button();
+            this.btn_trash = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PozostalyUrlop)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,11 +52,22 @@
             this.btn_DodajProdukt.UseVisualStyleBackColor = true;
             this.btn_DodajProdukt.Click += new System.EventHandler(this.btn_DodajProdukt_Click);
             // 
+            // btn_trash
+            // 
+            this.btn_trash.Location = new System.Drawing.Point(282, 253);
+            this.btn_trash.Name = "btn_trash";
+            this.btn_trash.Size = new System.Drawing.Size(160, 23);
+            this.btn_trash.TabIndex = 2;
+            this.btn_trash.Text = "Usuń ostatni produkt";
+            this.btn_trash.UseVisualStyleBackColor = true;
+            this.btn_trash.Click += new System.EventHandler(this.btn_trash_Click);
+            // 
             // FormPozostalyUrlop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_trash);
             this.Controls.Add(this.btn_DodajProdukt);
             this.Controls.Add(this.dgv_PozostalyUrlop);
             this.Name = "FormPozostalyUrlop";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.DataGridView dgv_PozostalyUrlop;
         private System.Windows.Forms.Button btn_DodajProdukt;
+        private System.Windows.Forms.Button btn_trash;
     }
 }

@@ -79,6 +79,12 @@
     <Compile Include="Element_materialy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Form\BW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\BW.Designer.cs">
+      <DependentUpon>BW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -480,8 +486,14 @@
     <Compile Include="Zwroty_z_produkcji.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form\BW.resx">
+      <DependentUpon>BW.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormMainPanel.resx">
       <DependentUpon>FormMainPanel.cs</DependentUpon>
