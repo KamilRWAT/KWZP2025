@@ -33,8 +33,6 @@ namespace WindowsFormsApp2
             //dgv_PozostalyUrlop.Columns["Produkcja_produktu"].Visible = false;
         }
 
-        }
-
         private void FormPozostalyUrlop_Load(object sender, EventArgs e)
         {
 
