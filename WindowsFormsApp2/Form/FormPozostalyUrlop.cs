@@ -17,8 +17,8 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
             _db = db;
-            dgv_PozostalyUrlop.DataSource = _db.Produkt.ToList();
-            dgv_PozostalyUrlop.Columns["Produkcja_produktu"].Visible = false;
+            dgv_PozostalyUrlop.DataSource = _db.V_NiedostepnoscPracownika.ToList();
+            //dgv_PozostalyUrlop.Columns["Produkcja_produktu"].Visible = false;
         }
 
         private void FormPozostalyUrlop_Load(object sender, EventArgs e)
