@@ -91,6 +91,12 @@
     <Compile Include="Form\BW.Designer.cs">
       <DependentUpon>BW.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\FormAD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormAD.Designer.cs">
+      <DependentUpon>FormAD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -503,6 +509,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormAD.resx">
+      <DependentUpon>FormAD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormMainPanel.resx">
       <DependentUpon>FormMainPanel.cs</DependentUpon>

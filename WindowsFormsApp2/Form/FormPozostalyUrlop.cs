@@ -20,13 +20,13 @@ namespace WindowsFormsApp2
             dgv_PozostalyUrlop.DataSource = _db.Produkt.ToList();
             for (int i = 0; i < dgv_PozostalyUrlop.Columns.Count; i++)
             {
-                if (i == 0 || i == 1) 
+                if (i == 0 || i == 1)
                 {
-                    dgv_PozostalyUrlop.Columns[i].Visible = true; 
+                    dgv_PozostalyUrlop.Columns[i].Visible = true;
                 }
                 else
                 {
-                    dgv_PozostalyUrlop.Columns[i].Visible = false; 
+                    dgv_PozostalyUrlop.Columns[i].Visible = false;
                 }
             }
             dgv_PozostalyUrlop.DataSource = _db.V_NiedostepnoscPracownika.ToList();
@@ -47,12 +47,12 @@ namespace WindowsFormsApp2
             dgv_PozostalyUrlop.DataSource = _db.Produkt.ToList();
             dgv_PozostalyUrlop.Update();
             dgv_PozostalyUrlop.Refresh();
-        
-            BW frm = new BW(_db); 
-            frm.BringToFront(); 
-            frm.ShowDialog(); 
+
+            BW frm = new BW(_db);
+            frm.BringToFront();
+            frm.ShowDialog();
             dgv_PozostalyUrlop.DataSource = null;
-            dgv_PozostalyUrlop.DataSource=_db.Produkt.ToList();
+            dgv_PozostalyUrlop.DataSource = _db.Produkt.ToList();
             dgv_PozostalyUrlop.Update();
             dgv_PozostalyUrlop.Refresh();
         }
@@ -60,19 +60,38 @@ namespace WindowsFormsApp2
         private void btn_trash_Click(object sender, EventArgs e)
         {
             Produkt ostatniProdukt = _db.Produkt.OrderByDescending(p => p.id_produktu).FirstOrDefault();
-
-            if (ostatniProdukt != null)
+            try
             {
-                _db.Produkt.Remove(ostatniProdukt); 
-                _db.SaveChanges(); 
+                Form FormAD = new FormAD(_db);
+                FormAD.ShowDialog();
+                Produkt produkt = new Produkt();
+                produkt.nazwa = "Emilia4";
+                List<Produkt> ostatniProdukta = _db.Produkt.ToList();
+                int index = ostatniProdukta.Last().id_produktu;
+                produkt.id_produktu = index + 1;
+                _db.Produkt.Add(produkt);
+                _db.SaveChanges();
+                dgv_PozostalyUrlop.DataSource = null;
                 dgv_PozostalyUrlop.DataSource = _db.Produkt.ToList();
+                dgv_PozostalyUrlop.Update();
+                dgv_PozostalyUrlop.Refresh();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Brak produktów do usunięcia.");
+
+                if (ostatniProdukt != null)
+                {
+                    _db.Produkt.Remove(ostatniProdukt);
+                    _db.SaveChanges();
+                    dgv_PozostalyUrlop.DataSource = _db.Produkt.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Brak produktów do usunięcia.");
+                }
+                this.Update();
+                this.Refresh();
             }
-            this.Update();
-            this.Refresh();
         }
     }
 }
