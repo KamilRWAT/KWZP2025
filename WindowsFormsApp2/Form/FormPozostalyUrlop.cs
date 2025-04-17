@@ -18,7 +18,18 @@ namespace WindowsFormsApp2
             InitializeComponent();
             _db = db;
             dgv_PozostalyUrlop.DataSource = _db.Produkt.ToList();
-            dgv_PozostalyUrlop.Columns["Produkcja_produktu"].Visible = false;
+            for (int i = 0; i < dgv_PozostalyUrlop.Columns.Count; i++)
+            {
+                if (i == 0 || i == 1) 
+                {
+                    dgv_PozostalyUrlop.Columns[i].Visible = true; 
+                }
+                else
+                {
+                    dgv_PozostalyUrlop.Columns[i].Visible = false; 
+                }
+            }
+
         }
 
         private void FormPozostalyUrlop_Load(object sender, EventArgs e)
@@ -28,25 +39,13 @@ namespace WindowsFormsApp2
 
         private void btn_DodajProdukt_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Produkt produkt = new Produkt();
-                produkt.nazwa = "Emilia4";
-                List<Produkt> ostatniProdukt = _db.Produkt.ToList();
-                int index = ostatniProdukt.Last().id_produktu;
-                produkt.id_produktu = index+1;
-                _db.Produkt.Add(produkt);
-                _db.SaveChanges();
-                dgv_PozostalyUrlop.DataSource = null;
-                dgv_PozostalyUrlop.DataSource = _db.Produkt.ToList();
-                dgv_PozostalyUrlop.Update();
-                dgv_PozostalyUrlop.Refresh();
-            }
-            catch (Exception ex)
-            {
 
-                MessageBox.Show(ex.Message);
-            }
+            Form mp = new MP(_db);
+            mp.ShowDialog();
+            dgv_PozostalyUrlop.DataSource = null;
+            dgv_PozostalyUrlop.DataSource = _db.Produkt.ToList();
+            dgv_PozostalyUrlop.Update();
+            dgv_PozostalyUrlop.Refresh();
         }
     }
 }
